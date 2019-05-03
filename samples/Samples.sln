@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.XamarinAndroid.Bindings.Library", "Sample.XamarinAndroid.Bindings.Library\Sample.XamarinAndroid.Bindings.Library.csproj", "{AA25D9AC-03CA-4275-88FA-489F2F5D8DA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.XamarinAndroid.Bindings.SDK", "Sample.XamarinAndroid.Bindings.SDK\Sample.XamarinAndroid.Bindings.SDK.csproj", "{F7185790-D9E9-404C-ABEF-D4BBFA730267}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{BF3D6AE0-7AB4-4F20-98B8-E737516F63A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter", "..\source\HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter\HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.csproj", "{63B04903-9DE5-4737-8573-2304142A0806}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA25D9AC-03CA-4275-88FA-489F2F5D8DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA25D9AC-03CA-4275-88FA-489F2F5D8DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA25D9AC-03CA-4275-88FA-489F2F5D8DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA25D9AC-03CA-4275-88FA-489F2F5D8DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7185790-D9E9-404C-ABEF-D4BBFA730267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7185790-D9E9-404C-ABEF-D4BBFA730267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7185790-D9E9-404C-ABEF-D4BBFA730267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7185790-D9E9-404C-ABEF-D4BBFA730267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63B04903-9DE5-4737-8573-2304142A0806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63B04903-9DE5-4737-8573-2304142A0806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63B04903-9DE5-4737-8573-2304142A0806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63B04903-9DE5-4737-8573-2304142A0806}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{63B04903-9DE5-4737-8573-2304142A0806} = {BF3D6AE0-7AB4-4F20-98B8-E737516F63A7}
+	EndGlobalSection
+EndGlobal
