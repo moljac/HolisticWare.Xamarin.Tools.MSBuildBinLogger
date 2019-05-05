@@ -1,0 +1,119 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
+    <Description>MSBuild targets/tasks to add api.xml analysis support to Xamarin.Android bindings projects</Description>
+  </PropertyGroup>
+
+    <!--
+    Project as a NuGet package.
+    -->
+    <PropertyGroup>
+        <PackOnBuild>true</PackOnBuild>
+        <!-- 
+        Suppresses the warnings about the package not having assemblies in lib/*/.dll.
+        -->
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <!-- 
+        Change the default location where NuGet will put the build output 
+        
+           This changes the default folder where assemblies will be placed in the package.
+            The default is 'lib', but that is incorrect since these assemblies are mean to be used
+            by MSBuild, and to meant to be referenced as API from the NuGet package.
+        
+            tools/
+            tasks/
+        -->
+        <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+        <!-- 
+        put the package output into a nuget test folder 
+        -->
+        <PackageOutputPath>$(HOME)/nuget-local</PackageOutputPath>
+        
+        <!-- 
+        nuget packaging
+        -->
+        <PackageId>HolisticWare.Xamarin.Tools.MSBuildBinLogger</PackageId>
+        <Title>
+            HolisticWare.Xamarin.Tools.MSBuildBinLogger
+        </Title>
+        <summary>
+            MSBuild targets/tasks to add ApiXml analysis and Metadata generation support to Xamarin.Android bindings projects
+        </summary>
+        <Description>
+            MSBuild targets/tasks to add ApiXml analysis and Metadata generation support to Xamarin.Android bindings projects
+        </Description>
+        <Owners>moljac, HolisticWare</Owners>
+        <Authors>moljac, HolisticWare</Authors>
+        <Copyright>2019</Copyright>
+        <ProjectUrl>
+            https://github.com/moljac/HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.MSBuildBinLogger
+        </ProjectUrl>
+        <RepositoryUrl>
+            https://github.com/moljac/HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.MSBuildBinLogger
+        </RepositoryUrl>
+        <iconUrl>
+            https://secure.gravatar.com/avatar/b662959e712466f393541935b664d3c5
+        </iconUrl>
+        <license>LICENSE</license>
+        <licenseUrl>
+            https://github.com/moljac/HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.MSBuildBinLogger/blob/master/LICENSE
+        </licenseUrl>
+        <VersionPrefix>0.0.1</VersionPrefix>
+        <!--
+        VersionSuffix - For debugging and local nuget feed 
+        -->        
+        <VersionSuffix>alpha-$([System.DateTime]::Now.ToString('yyyyMMddHHmmss'))</VersionSuffix>
+        <PackageVersion>$(Version)</PackageVersion>
+        <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+        <PackageTags>
+            xamarin, android, bindings, utilities, api.xml, analysis, metadata, metadata.xml, holisticware
+        </PackageTags>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      PrivateAssets="All" is essential. This prevents these build-only dependencies
+      from ending up in the NuGet package's list of dependencies.
+     -->
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="15.8.166" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="15.8.166" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.8.166" PrivateAssets="All" />
+    <!-- 
+        marks all packages as 'local only' so they don't end up in the nuspec 
+    -->
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />        
+  </ItemGroup>
+
+    <PropertyGroup>  
+        <!--
+        <EnableDefaultItems>false</EnableDefaultItems>
+        -->
+        <BindingsHelperFolder>$(MSBuildThisFileDirectory)/holisticware-generated</BindingsHelperFolder>  
+        <BindingsHelperFolderMSBuildBinLoggerOutput>$(BindingsHelperFolder)/api.xml</BindingsHelperFolderMSBuildBinLoggerOutput>  
+    </PropertyGroup>  
+    
+  <ItemGroup>
+    <Folder Include="build\" />
+    <Folder Include="holisticware-generated\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="holisticware-generated\.gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="build\HolisticWare.Xamarin.Tools.MSBuildBinLogger.props" />
+    <None Include="build\HolisticWare.Xamarin.Tools.MSBuildBinLogger.targets" />
+    <None Include="LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PackagesToNamespacesSpitter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Directory.Build.rsp" />
+  </ItemGroup>
+</Project>

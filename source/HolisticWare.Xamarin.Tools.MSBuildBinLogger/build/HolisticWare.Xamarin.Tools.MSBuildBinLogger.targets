@@ -1,0 +1,84 @@
+﻿<!--
+  NuGet automatically imports this file into any project that has a PackageReference to 'SampleTasks'.
+  To see this in action, execute "dotnet restore" on the 3-NuGet example and look in the obj/ folder for
+  a file named Web.csproj.g.nuget.targets. You'll see inside that it contains an "Import" to this file.
+ -->
+<Project>
+
+    <ItemGroup>
+        <FilesMetadata Include="$(MSBuildProjectDirectory)/Transforms/Metadata.Namespaces.xml" />
+    </ItemGroup>
+    <Target Name="PrepareFileMetadataNamespaces">
+        <CreateItem
+            Include="@(FilesMetadata)"
+            AdditionalMetadata="MyMetadata=Hello"
+            >
+            <Output
+                TaskParameter="Include"
+                ItemName="TransformFile"
+                />
+        </CreateItem>
+    </Target>
+    <PropertyGroup>  
+        <!--
+        <EnableDefaultItems>false</EnableDefaultItems>
+        -->
+        <BindingsHelperFolder>holisticware-generated</BindingsHelperFolder>  
+        <BindingsHelperFolderInProject>$(MSBuildProjectDirectory)/$(BindingsHelperFolder)</BindingsHelperFolderInProject>  
+        <BindingsHelperFolderDecompilerOutput>$(BindingsHelperFolderInProject)/api.xml</BindingsHelperFolderDecompilerOutput>  
+    </PropertyGroup>  
+    <!--
+    AvailableItemName
+        EmbeddedJar
+        EmbeddedNativeLibrary
+        EmbeddedReferenceJar
+        InputJar
+        JavaDocIndex
+        JavaDocJar
+        JavaSourceJar
+        LibraryProjectProperties
+        LibraryProjectZip
+        ReferenceJar
+        TransformFile
+    -->  
+
+    
+    
+    <PropertyGroup>
+        <TaskFolder>netstandard2.0</TaskFolder>
+        <!--
+            <TaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' ">net46</TaskFolder>        
+        -->
+        <TaskAssembly>$(MSBuildThisFileDirectory)..\tools\$(TaskFolder)\HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.dll</TaskAssembly>
+    </PropertyGroup>
+    
+    <UsingTask 
+        TaskName="HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.PackagesToNamespacesSpitter" 
+        AssemblyFile="$(TaskAssembly)" 
+        />
+        <Target
+            Name="Run_PackagesToNamespacesSpitter" 
+            AfterTargets="CoreCompile"
+            >
+            <Message Text="mc++ Target=PackagesToNamespacesSpitter"></Message>
+            <HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.PackagesToNamespacesSpitter
+                FileOutputMetadataNamespaces="mc++"
+                IntermediateOutputPath="$(IntermediateOutputPath)"
+            >            
+            </HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.PackagesToNamespacesSpitter>
+    </Target>
+    
+    
+    <!--
+    Debugging MSBuild Tasks
+    https://blogs.msdn.microsoft.com/msbuild/2005/09/28/how-to-debug-a-custom-msbuild-task-using-visual-studio/    
+    
+    VS4Mac +/ Run +/ Debug Application ...
+    
+    Command:    msbuild
+    Arguments:  Sample.XamarinAndroid.Bindings.Library.csproj   
+    -->
+    
+    
+    
+</Project>
