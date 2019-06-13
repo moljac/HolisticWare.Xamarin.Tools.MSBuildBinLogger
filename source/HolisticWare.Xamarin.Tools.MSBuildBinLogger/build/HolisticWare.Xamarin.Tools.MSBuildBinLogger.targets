@@ -49,11 +49,20 @@
         <!--
             <TaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' ">net46</TaskFolder>        
         -->
-        <TaskAssembly>$(MSBuildThisFileDirectory)..\tools\$(TaskFolder)\HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.dll</TaskAssembly>
+        <TaskAssembly>$(MSBuildThisFileDirectory)..\tools\$(TaskFolder)\HolisticWare.Xamarin.Tools.MSBuildBinLogger.dll</TaskAssembly>
     </PropertyGroup>
     
+    <!--
+    -->
+    <ItemGroup>
+        <Directory_Build_rsp Include="$(MSBuildThisFileDirectory)\..\Directory.Build.rsp" />
+    </ItemGroup>
+    <Target Name="Copy_Directory_Build_rsp" BeforeTargets="Build">
+        <Copy SourceFiles="@(Directory_Build_rsp)" DestinationFolder="$(MSBuildProjectDirectory)\" />
+    </Target>
+    
     <UsingTask 
-        TaskName="HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.PackagesToNamespacesSpitter" 
+        TaskName="HolisticWare.Xamarin.Tools.MSBuildBinLogger" 
         AssemblyFile="$(TaskAssembly)" 
         />
         <Target

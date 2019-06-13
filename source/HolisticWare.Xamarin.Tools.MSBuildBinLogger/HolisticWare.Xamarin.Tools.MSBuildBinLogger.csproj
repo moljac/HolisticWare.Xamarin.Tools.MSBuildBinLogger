@@ -1,12 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackOnBuild>true</PackOnBuild>
     <EnableDefaultItems>false</EnableDefaultItems>
+        
+    <PackOnBuild>true</PackOnBuild>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     
-    <Description>MSBuild targets/tasks to add api.xml analysis support to Xamarin.Android bindings projects</Description>
+    <Description>
+        MSBuild targets/tasks to add MsBuild BinLogger (binary logger) support
+    </Description>
   </PropertyGroup>
 
     <!--
@@ -42,26 +45,26 @@
             HolisticWare.Xamarin.Tools.MSBuildBinLogger
         </Title>
         <summary>
-            MSBuild targets/tasks to add ApiXml analysis and Metadata generation support to Xamarin.Android bindings projects
+            MSBuild targets/tasks to add MsBuild BinLogger (binary logger) support
         </summary>
         <Description>
-            MSBuild targets/tasks to add ApiXml analysis and Metadata generation support to Xamarin.Android bindings projects
+            MSBuild targets/tasks to add MsBuild BinLogger (binary logger) support
         </Description>
         <Owners>moljac, HolisticWare</Owners>
         <Authors>moljac, HolisticWare</Authors>
         <Copyright>2019</Copyright>
         <ProjectUrl>
-            https://github.com/moljac/HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.MSBuildBinLogger
+            https://github.com/moljac/HolisticWare.Xamarin.Tools.MSBuildBinLogger
         </ProjectUrl>
         <RepositoryUrl>
-            https://github.com/moljac/HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.MSBuildBinLogger
+            https://github.com/moljac/HolisticWare.Xamarin.Tools.MSBuildBinLogger
         </RepositoryUrl>
         <iconUrl>
             https://secure.gravatar.com/avatar/b662959e712466f393541935b664d3c5
         </iconUrl>
         <license>LICENSE</license>
         <licenseUrl>
-            https://github.com/moljac/HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.MSBuildBinLogger/blob/master/LICENSE
+            https://github.com/moljac/HolisticWare.Xamarin.Tools.MSBuildBinLogger/blob/master/LICENSE
         </licenseUrl>
         <VersionPrefix>0.0.1</VersionPrefix>
         <!--
@@ -71,7 +74,7 @@
         <PackageVersion>$(Version)</PackageVersion>
         <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
         <PackageTags>
-            xamarin, android, bindings, utilities, api.xml, analysis, metadata, metadata.xml, holisticware
+            xamarin, utilities, tools, msbuild, binary, logger, binlogger
         </PackageTags>
     </PropertyGroup>
 
@@ -109,11 +112,9 @@
     <None Include="build\HolisticWare.Xamarin.Tools.MSBuildBinLogger.props" />
     <None Include="build\HolisticWare.Xamarin.Tools.MSBuildBinLogger.targets" />
     <None Include="LICENSE" />
+    <None Include="Directory.Build.rsp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PackagesToNamespacesSpitter.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Directory.Build.rsp" />
+    <Compile Include="MSBuildBinLogger.cs" />
   </ItemGroup>
 </Project>

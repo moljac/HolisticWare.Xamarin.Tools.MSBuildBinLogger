@@ -66,4 +66,4 @@
 #                       /bl:..\..\custom.binlog
 #                       /binaryLogger
 
-/binaryLogger
+/binaryLogger:.\holisticware-generated\msbuild-structured.binlog
