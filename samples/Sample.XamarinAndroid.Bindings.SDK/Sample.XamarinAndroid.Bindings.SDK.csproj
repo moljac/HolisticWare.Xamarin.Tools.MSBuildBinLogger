@@ -94,9 +94,6 @@
     <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\source\HolisticWare.Xamarin.Tools.MSBuildBinLogger\HolisticWare.Xamarin.Tools.MSBuildBinLogger.csproj" />
-  </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 
 

@@ -48,21 +48,11 @@
     <None Include="Additions\AboutAdditions.txt" />
     <None Include="Jars\AboutJars.txt" />
     <None Include="LICENSE" />
-    <None Include="holisticware-generated\Transforms\Metadata.xml" />
-    <None Include="holisticware-generated\Transforms\Metadata.Namespaces.xml" />
-    <None Include="holisticware-generated\api.xml\.gitignore" />
-    <None Include="holisticware-generated\.gitignore" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\EnumFields.xml" />
     <TransformFile Include="Transforms\EnumMethods.xml" />
     <TransformFile Include="Transforms\Metadata.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\source\HolisticWare.Xamarin.Tools.MSBuildBinLogger\HolisticWare.Xamarin.Tools.MSBuildBinLogger.csproj">
-      <Project>{43E17FDD-3B47-4285-9307-368B197CBACD}</Project>
-      <Name>HolisticWare.Xamarin.Tools.MSBuildBinLogger</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
     
