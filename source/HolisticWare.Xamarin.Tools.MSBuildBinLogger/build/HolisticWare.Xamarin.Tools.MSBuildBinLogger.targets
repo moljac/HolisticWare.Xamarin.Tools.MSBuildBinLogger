@@ -5,19 +5,16 @@
  -->
 <Project>
 
-    <ItemGroup>
-        <FilesMetadata Include="$(MSBuildProjectDirectory)/Transforms/Metadata.Namespaces.xml" />
-    </ItemGroup>
-    <Target Name="PrepareFileMetadataNamespaces">
-        <CreateItem
-            Include="@(FilesMetadata)"
-            AdditionalMetadata="MyMetadata=Hello"
-            >
-            <Output
-                TaskParameter="Include"
-                ItemName="TransformFile"
-                />
-        </CreateItem>
+    <Target Name="CopyToProject_Directory_Build_rsp" BeforeTargets="Build">
+        <Message Text="Copying to Project: Directory.Build.rsp" />
+        <ItemGroup>
+            <Files_Directory_Build_rsp Include="$(MSBuildThisFileDirectory)..\Directory.Build.rsp"/>
+        </ItemGroup>
+        <Copy 
+            SourceFiles="@(Files_Directory_Build_rsp)" 
+            DestinationFiles="@(Files_Directory_Build_rsp -> '$(MSBuildProjectDirectory)\%(RecursiveDir)%(Filename)%(Extension)')" 
+            Condition="!Exists('$(MSBuildProjectDirectory)\%(RecursiveDir)%(Filename)%(Extension)')" 
+            />
     </Target>
     <PropertyGroup>  
         <!--
@@ -25,7 +22,6 @@
         -->
         <BindingsHelperFolder>holisticware-generated</BindingsHelperFolder>  
         <BindingsHelperFolderInProject>$(MSBuildProjectDirectory)/$(BindingsHelperFolder)</BindingsHelperFolderInProject>  
-        <BindingsHelperFolderDecompilerOutput>$(BindingsHelperFolderInProject)/api.xml</BindingsHelperFolderDecompilerOutput>  
     </PropertyGroup>  
     <!--
     AvailableItemName
@@ -58,7 +54,10 @@
         <Directory_Build_rsp Include="$(MSBuildThisFileDirectory)\..\Directory.Build.rsp" />
     </ItemGroup>
     <Target Name="Copy_Directory_Build_rsp" BeforeTargets="Build">
-        <Copy SourceFiles="@(Directory_Build_rsp)" DestinationFolder="$(MSBuildProjectDirectory)\" />
+        <Copy 
+            SourceFiles="@(Directory_Build_rsp)" 
+            DestinationFolder="$(MSBuildProjectDirectory)\" 
+        />
     </Target>
     
     <UsingTask 
@@ -66,15 +65,15 @@
         AssemblyFile="$(TaskAssembly)" 
         />
         <Target
-            Name="Run_PackagesToNamespacesSpitter" 
+            Name="Run_MSBuildBinLogger" 
             AfterTargets="CoreCompile"
             >
-            <Message Text="mc++ Target=PackagesToNamespacesSpitter"></Message>
-            <HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.PackagesToNamespacesSpitter
+            <Message Text="mc++ Target=Run_MSBuildBinLogger"></Message>
+            <HolisticWare.Xamarin.Tools.MSBuildBinLogger
                 FileOutputMetadataNamespaces="mc++"
                 IntermediateOutputPath="$(IntermediateOutputPath)"
             >            
-            </HolisticWare.Xamarin.Tools.Bindings.XamarinAndroid.ApiXmlSpitter.PackagesToNamespacesSpitter>
+            </HolisticWare.Xamarin.Tools.MSBuildBinLogger>
     </Target>
     
     
