@@ -39,6 +39,7 @@ using Microsoft.Build.Logging.StructuredLogger;
 
 *   https://stackoverflow.com/questions/51924129/copy-files-from-nuget-package-to-output-directory-with-msbuild-in-csproj-and-do
 
+*   https://blog.nuget.org/20160126/nuget-contentFiles-demystified.html
 
 ## MSBuild custom tasks and distribution/installation via nuget
 
