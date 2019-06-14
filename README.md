@@ -32,3 +32,9 @@ using Microsoft.Build.Logging.StructuredLogger;
                 Console.WriteLine(taskCommandLine.CommandLine);
             }
 ```
+
+## Copy files from nuget into install project
+
+*   https://github.com/NuGet/Home/issues/6743
+
+
