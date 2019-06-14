@@ -8,8 +8,6 @@ HolisticWare.Xamarin.Tools.BinaryLogger
 
     *   https://www.nuget.org/packages/MSBuild.StructuredLogger
 
-*   https://natemcmaster.com/blog/2017/07/05/msbuild-task-in-nuget/
-
 
 ```
 using Microsoft.Build.Framework;
@@ -37,4 +35,18 @@ using Microsoft.Build.Logging.StructuredLogger;
 
 *   https://github.com/NuGet/Home/issues/6743
 
+*   https://stackoverflow.com/questions/33911368/use-msbuild-targets-to-copy-files-recursively-from-nuget-package
+
+*   https://stackoverflow.com/questions/51924129/copy-files-from-nuget-package-to-output-directory-with-msbuild-in-csproj-and-do
+
+
+## MSBuild custom tasks and distribution/installation via nuget
+
+*   https://natemcmaster.com/blog/2017/07/05/msbuild-task-in-nuget/
+
+*   https://blog.rsuter.com/implement-custom-msbuild-tasks-and-distribute-them-via-nuget/
+
+*   https://github.com/Microsoft/msbuild/issues/2514
+
+*   https://github.com/microsoft/msbuild/issues/2529
 
