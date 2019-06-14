@@ -106,13 +106,29 @@
     <Folder Include="holisticware-generated\" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="holisticware-generated\.gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="build\HolisticWare.Xamarin.Tools.MSBuildBinLogger.props" />
-    <None Include="build\HolisticWare.Xamarin.Tools.MSBuildBinLogger.targets" />
-    <None Include="LICENSE" />
-    <None Include="Directory.Build.rsp" />
+    <Content Include="build\*" PackagePath="build\" >        
+        <Pack>true</Pack>
+        <PackagePath>.\</PackagePath>   
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>    
+    </Content>
+    <Content Include="LICENSE" >
+        <Pack>true</Pack>
+        <PackagePath>contentFiles\;content\</PackagePath>   
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>    
+    </Content>
+    <Content Include="Directory.Build.rsp" >
+        <Pack>true</Pack>
+        <PackagePath>contentFiles\;content\</PackagePath>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>    
+    </Content>
+    <Content Include="holisticware-generated\.gitignore" >
+        <Pack>true</Pack>
+        <PackagePath>contentFiles\;content\</PackagePath>            
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>    
+    </Content>
+        
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MSBuildBinLogger.cs" />
