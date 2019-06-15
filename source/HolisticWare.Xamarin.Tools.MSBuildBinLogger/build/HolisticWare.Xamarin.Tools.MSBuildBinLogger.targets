@@ -5,6 +5,7 @@
  -->
 <Project>
 
+    <!--
     <Target Name="CopyToProject_Directory_Build_rsp" BeforeTargets="Build">
         <Message Text="Copying to Project: Directory.Build.rsp" />
         <ItemGroup>
@@ -16,6 +17,7 @@
             Condition="!Exists('$(MSBuildProjectDirectory)\%(RecursiveDir)%(Filename)%(Extension)')" 
             />
     </Target>
+    -->
     <PropertyGroup>  
         <!--
         <EnableDefaultItems>false</EnableDefaultItems>
@@ -49,7 +51,6 @@
     </PropertyGroup>
     
     <!--
-    -->
     <ItemGroup>
         <Directory_Build_rsp Include="$(MSBuildThisFileDirectory)\..\Directory.Build.rsp" />
     </ItemGroup>
@@ -59,6 +60,7 @@
             DestinationFolder="$(MSBuildProjectDirectory)\" 
         />
     </Target>
+    -->
     
     <UsingTask 
         TaskName="HolisticWare.Xamarin.Tools.MSBuildBinLogger" 
@@ -87,6 +89,5 @@
     Arguments:  Sample.XamarinAndroid.Bindings.Library.csproj   
     -->
     
-    
-    
+        
 </Project>
