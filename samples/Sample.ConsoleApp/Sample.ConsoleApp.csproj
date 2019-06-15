@@ -5,7 +5,4 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="HolisticWare.Xamarin.Tools.MSBuildBinLogger" Version="0.0.1-alpha-20190614101857" />
-  </ItemGroup>
 </Project>
