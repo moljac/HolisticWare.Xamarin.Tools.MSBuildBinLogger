@@ -51,3 +51,14 @@ using Microsoft.Build.Logging.StructuredLogger;
 
 *   https://github.com/microsoft/msbuild/issues/2529
 
+## Steps
+
+1.  package content (`Directory.Build.rsp`)
+
+    [DONE]
+
+2.  unpack content (`Directory.Build.rsp`) during installation
+
+    [DONE]
+
+3.  correct BuildAction
