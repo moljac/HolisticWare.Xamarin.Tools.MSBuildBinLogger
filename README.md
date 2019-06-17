@@ -62,3 +62,32 @@ using Microsoft.Build.Logging.StructuredLogger;
     [DONE]
 
 3.  correct BuildAction
+
+    [DONE]
+
+## Issues
+
+*  Build action issue after add nuget to project (automatically changed from Content to Compile).
+    *  Founded solution how to resolve on https://github.com/dotnet/cli/issues/9944. Here is example:
+    
+        ```
+        
+        <!--WRONG!-->
+        <Content Include="LICENSE" >
+            <Pack>true</Pack>
+            <PackagePath>contentFiles\any\any;content\any\any\</PackagePath>   
+            <BuildAction>Content</BuildAction>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <CopyToOutput>true</CopyToOutput>
+        </Content>
+        
+        <!--CORRECT!-->
+        <Content Include="LICENSE" >
+            <Pack>true</Pack>
+            <PackagePath>contentFiles/any/any;content/any/any/</PackagePath>   
+            <BuildAction>Content</BuildAction>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <CopyToOutput>true</CopyToOutput>
+        </Content>
+    
+    ```
