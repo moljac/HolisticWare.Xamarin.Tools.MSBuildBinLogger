@@ -115,19 +115,18 @@
         
     <Content Include="LICENSE" >
         <Pack>true</Pack>
-        <PackagePath>contentFiles\any\any\;content\any\any\</PackagePath>   
+        <PackagePath>contentFiles/any/any/;content/any/any/</PackagePath>   
         <BuildAction>Content</BuildAction>
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         <CopyToOutput>true</CopyToOutput>
     </Content>
     <Content Include="Directory.Build.rsp" >
         <Pack>true</Pack>
-        <PackagePath>contentFiles\any\any\;content\any\any\</PackagePath>   
+        <PackagePath>contentFiles/any/any/;content/any/any/</PackagePath>   
         <BuildAction>Content</BuildAction>
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>    
         <CopyToOutput>true</CopyToOutput>
-    </Content>
-        
+    </Content> 
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MSBuildBinLogger.cs" />
