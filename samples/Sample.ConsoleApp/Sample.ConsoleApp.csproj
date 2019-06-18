@@ -5,4 +5,17 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove=".DS_Store" />
+    <None Remove="Directory.Build.rsp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Directory.Build.rsp">
+      <Pack>true</Pack>
+      <PackagePath>contentFiles/any/any/;content/any/any/</PackagePath>
+      <BuildAction>Content</BuildAction>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutput>true</CopyToOutput>
+    </Content>
+  </ItemGroup>
 </Project>
