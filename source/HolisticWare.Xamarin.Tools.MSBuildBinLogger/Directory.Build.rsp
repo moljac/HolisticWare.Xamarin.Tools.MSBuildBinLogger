@@ -10,15 +10,15 @@
 # NOTE: The "/noautoresponse" switch cannot be specified in this file, nor in
 # any response file that is referenced by this file.
 #------------------------------------------------------------------------------
-
+/binaryLogger
 /verbosity:diagnostic
-#/m
-#/clp:Summary
 /Restore
 /ConsoleLoggerParameters:Verbosity=Diagnostic;Summary;ForceNoAlign
 /MaxCPUCount
 /NodeReuse:false
-
+#/m
+#/clp:Summary
+#------------------------------------------------------------------------------
 # choco install msbuild-structured-log-viewer
 # http://msbuildlog.com/
 #
@@ -66,4 +66,4 @@
 #                       /bl:..\..\custom.binlog
 #                       /binaryLogger
 
-/binaryLogger:.\holisticware-generated\msbuild-structured.binlog
+#/binaryLogger:.\holisticware-generated\msbuild-structured.binlog

@@ -127,6 +127,13 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>    
         <CopyToOutput>true</CopyToOutput>
     </Content> 
+    <Content Include="Directory.Build.props" >
+        <Pack>true</Pack>
+        <PackagePath>contentFiles/any/any/;content/any/any/</PackagePath>   
+        <BuildAction>Content</BuildAction>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>    
+        <CopyToOutput>true</CopyToOutput>
+    </Content> 
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MSBuildBinLogger.cs" />
